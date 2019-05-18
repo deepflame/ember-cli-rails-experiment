@@ -10,6 +10,9 @@
 # Ignore bundle
 /vendor/bundle
 
+# Ignore Ember packages
+/ember/node_modules
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
