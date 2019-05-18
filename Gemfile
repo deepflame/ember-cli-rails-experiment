@@ -27,8 +27,15 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
+group :test do
+  gem "minitest-rails", "~> 3.0"
+  gem "minitest-rails-capybara"
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
