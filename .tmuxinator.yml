@@ -1,0 +1,19 @@
+name: rails
+
+windows:
+- editor:
+    layout: main-horizontal
+    panes:
+      - nvim
+      - 
+- server:
+    layout: even-vertical
+    panes:
+      - ./bin/rails s
+      - ./bin/rails c
+      -
+- git:
+    layout: main-horizontal
+    panes:
+      - lazygit
+      -
