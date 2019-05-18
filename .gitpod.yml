@@ -3,6 +3,6 @@ image:
 ports:
 - port: 3000
 tasks:
-- before: gem install tmuxinator
+- before: gem install tmuxinator jets
 - init: bundle install --path vendor/bundle && cd ember && yarn install && npm install -g ember-cli
 - command: tmuxinator
