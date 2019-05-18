@@ -18,6 +18,8 @@ USER gitpod
 # Apply user-specific settings
 
 ENV TERM="xterm-256color"
+# install custom dev env
+RUN cd $HOME && git clone https://github.com/deepflame/dotfiles.git && cd dotfiles && ./install.sh && vim +PlugInstall +qall > /dev/null
 
 # Give back control
 USER root
