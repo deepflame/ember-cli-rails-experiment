@@ -9,7 +9,7 @@ windows:
 - server:
     layout: even-vertical
     panes:
-      - ./binrails s
+      - ./bin/rails s
       - ./bin/rails c
       -
 - git:
