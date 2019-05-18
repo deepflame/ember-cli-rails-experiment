@@ -13,7 +13,7 @@ windows:
       - ./bin/rails c
       -
 - git:
-    layout: even-vertical
+    layout: main-horizontal
     panes:
       - lazygit
       -
