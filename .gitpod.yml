@@ -4,5 +4,5 @@ ports:
 - port: 3000
 tasks:
 - before: gem install tmuxinator
-- init: bundle install --path vendor/bundle && cd ember && yarn install
+- init: bundle install --path vendor/bundle && cd ember && yarn install && npm install -g ember-cli
 - command: tmuxinator
