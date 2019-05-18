@@ -3,5 +3,5 @@ image:
 ports:
 - port: 3000
 tasks:
-- init: bundle install
+- init: bundle install --path vendor/bundle
 - command: ./bin/rails s
