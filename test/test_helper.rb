@@ -1,9 +1,8 @@
-ENV["RAILS_ENV"] = "test"
-require File.expand_path("../../config/environment", __FILE__)
-require "rails/test_help"
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+require 'rails/test_help'
 
-require "minitest/rails"
-require "minitest/rails/capybara"
+#require "minitest/rails"
 
 # Uncomment for awesome colorful output
 # require "minitest/pride"
