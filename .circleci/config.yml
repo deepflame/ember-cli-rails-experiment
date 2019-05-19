@@ -14,7 +14,8 @@ jobs:
 
       - restore_cache:
           keys:
-            - app-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - app-bundle-v1-{{ checksum "Gemfile.lock" }}-{{ checksum "ember/yarn.lock"}}
+            - app-bundle-v1-{{ checksum "Gemfile.lock" }}-
             - app-bundle-v1-
 
       - run:
@@ -22,11 +23,13 @@ jobs:
           command: |
             bundle -v
             bundle check || bundle install
+            bin/rails ember:install
 
       - save_cache:
-          key: app-bundle-v1-{{ checksum "Gemfile.lock" }}
+          key: app-bundle-v1-{{ checksum "Gemfile.lock" }}-{{ checksum "ember/yarn.lock"}}
           paths:
             - vendor/bundle
+            - ember/node_modules
 
   run_tests:
     parallelism: 1
