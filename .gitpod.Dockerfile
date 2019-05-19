@@ -25,12 +25,5 @@ ENV TERM="xterm-256color"
 # install custom dev env
 RUN cd $HOME && git clone https://github.com/deepflame/dotfiles.git && cd dotfiles && ./install.sh && vim +PlugInstall +qall > /dev/null
 
-# install phantomjs
-RUN cd $HOME/bin && \
-      wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-      tar -xjf phantomjs-*.tar.bz2 && \
-      mv phantomjs*/bin/phantomjs $HOME/bin && \
-      rm -Rf phantomjs-*
-
 # Give back control
 USER root
