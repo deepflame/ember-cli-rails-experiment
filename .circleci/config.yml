@@ -63,7 +63,9 @@ jobs:
           environment:
             RAILS_ENV: test
           command: |
-            bin/rake test
+            bin/rails test
+            bin/rails test test/system
+            bin/rails ember:test
 
       - store_test_results:
           path: test_results
