@@ -28,7 +28,7 @@ RUN cd $HOME && git clone https://github.com/deepflame/dotfiles.git && cd dotfil
 # install phantomjs
 RUN cd $HOME/bin && \
       wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-      tar -xvjf phantomjs*.bz2 && \
+      tar -xjf phantomjs-*.tar.bz2 && \
       mv phantomjs*/bin/phantomjs $HOME/bin && \
       rm -Rf phantomjs-*
 
