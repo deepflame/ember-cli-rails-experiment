@@ -30,7 +30,7 @@ RUN cd $HOME/bin && \
       wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
       tar -xvjf phantomjs*.bz2 && \
       mv phantomjs*/bin/phantomjs $HOME/bin && \
-      rm -Rf phantomjs*
+      rm -Rf phantomjs-*
 
 # Give back control
 USER root
