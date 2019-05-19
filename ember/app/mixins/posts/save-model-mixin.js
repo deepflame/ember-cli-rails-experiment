@@ -7,7 +7,7 @@ export default Mixin.create({
       this.currentModel.save().then(function() {
         route.transitionTo('posts');
       }, function() {
-        console.log('Failed to save the model');
+        //console.log('Failed to save the model');
       });
     },
 

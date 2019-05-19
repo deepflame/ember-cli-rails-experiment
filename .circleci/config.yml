@@ -1,0 +1,87 @@
+version: 2
+
+jobs:
+  install_dependencies:
+    parallelism: 1
+    docker:
+      - image: circleci/ruby:2.6.3-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - app-bundle-v1-{{ checksum "Gemfile.lock" }}-{{ checksum "ember/yarn.lock"}}
+            - app-bundle-v1-{{ checksum "Gemfile.lock" }}-
+            - app-bundle-v1-
+
+      - run:
+          name: Bundle Install
+          command: |
+            bundle -v
+            bundle check || bundle install
+
+      - run:
+          name: Yarn Install
+          command: |
+            bin/rails ember:install
+
+      - save_cache:
+          key: app-bundle-v1-{{ checksum "Gemfile.lock" }}-{{ checksum "ember/yarn.lock"}}
+          paths:
+            - vendor/bundle
+            - ember/node_modules
+
+  run_tests:
+    parallelism: 1
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: circleci
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: rails_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - app-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - app-bundle-v1-
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Database setup
+          command: |
+            bin/rails db:setup
+
+      - run:
+          name: Run tests
+          environment:
+            RAILS_ENV: test
+          command: |
+            bin/rails test
+            bin/rails test test/system
+            bin/rails ember:test
+
+      - store_test_results:
+          path: test_results
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - install_dependencies
+      - run_tests:
+          requires:
+            - install_dependencies
