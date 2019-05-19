@@ -33,8 +33,10 @@ group :development do
 end
 
 group :test do
-  gem "minitest-rails", "~> 3.0"
-  gem "minitest-rails-capybara", "~> 3.0"
+  gem 'minitest-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
