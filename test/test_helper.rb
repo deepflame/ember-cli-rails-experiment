@@ -2,7 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
-#require "minitest/rails"
+require "minitest/rails"
 
 # Uncomment for awesome colorful output
 # require "minitest/pride"
