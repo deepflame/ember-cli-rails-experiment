@@ -180,7 +180,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    webdrivers (3.9.3)
+    webdrivers (3.9.4)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
@@ -208,7 +208,7 @@ DEPENDENCIES
   restful-jsonapi
   selenium-webdriver
   tzinfo-data
-  webdrivers (~> 3.0)
+  webdrivers (~> 3.9)
 
 RUBY VERSION
    ruby 2.6.3p62
