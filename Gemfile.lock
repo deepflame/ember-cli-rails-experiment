@@ -162,8 +162,8 @@ GEM
     restful-jsonapi (1.0.7)
       rails (>= 4, < 6)
     ruby_dep (1.5.0)
-    rubyzip (1.2.2)
-    selenium-webdriver (3.142.2)
+    rubyzip (1.2.3)
+    selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     shellany (0.0.1)
@@ -180,7 +180,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    webdrivers (3.9.3)
+    webdrivers (4.0.0)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
@@ -208,7 +208,7 @@ DEPENDENCIES
   restful-jsonapi
   selenium-webdriver
   tzinfo-data
-  webdrivers (~> 3.0)
+  webdrivers (~> 4.0.0)
 
 RUBY VERSION
    ruby 2.6.3p62
