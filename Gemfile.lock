@@ -176,7 +176,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    webdrivers (4.0.1)
+    webdrivers (4.1.0)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (>= 3.0, < 4.0)
@@ -204,7 +204,7 @@ DEPENDENCIES
   restful-jsonapi
   selenium-webdriver
   tzinfo-data
-  webdrivers (~> 4.0)
+  webdrivers (~> 4.1)
 
 RUBY VERSION
    ruby 2.6.3p62
